@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Components</title>
+    <!--Estilos de Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!--Iconos-->
+    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--Css-->
+    <link rel="stylesheet" href="compo.css">
+    <!--Fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <div class="glob"></div>
+        <div class="bar">
+            <div class="menubtn">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <span><a href="/">COMPO</a></span>
+            <a href="#top" class="btn btn-outline-secondary"> Sign Up</a>
+        </div>
+
+        <div class="op">
+            <ul>
+                <li>For Home</li>
+                <li>For Work</li>
+                <li>For Creators</li>
+                <li>For Students</li>
+                <li>Software</li>
+            </ul>
+            <ul>
+                <span>By Category</span>
+                <li>For Home</li>
+                <li>For Work</li>
+                <li>For Creators</li>
+                <li>For Students</li>
+                <li>Software</li>
+            </ul>
+            <ul>
+                <span>By Series</span>
+                <li>For Home</li>
+                <li>For Work</li>
+                <li>For Creators</li>
+                <li>For Students</li>
+                <li>Software</li>
+            </ul>
+            <ul>
+                <div></div>
+                <div></div>
+            </ul>
+        </div>
+    </nav>
+    <div id="output">
+
+    </div>
+
+    <a href="#" class="btn btn-outline-secondary"> Go top</a>
+    <footer></footer>
+
+    <script>
+        document.querySelector('.menubtn').addEventListener('click', () => {
+            document.querySelector('nav').classList.toggle('open');
+        });
+        if (document.querySelector('.banner')) {
+            document.querySelector('.banner').addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('open');
+            });
+        };
+        if (document.querySelector('.display')) {
+            document.querySelector('.display').addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('open');
+            });
+        };
+
+        document.querySelector('footer').addEventListener('click', () => {
+            document.querySelector('nav').classList.remove('open');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="/datos.js"></script>
+
+
+
+    <script type="text/x-handlebars-template" id="templateHome">
+        <div class="banner">
+            <img src="/Capa 2.png" alt="" style="position: absolute; height:80%; top: 50%; left: 50%;transform: translate(-50%,-50%);">
+            <div class="inputs">
+                <input class="form-control" type="text" name="search" id="search" placeholder="Que componente estas buscando?" maxlength="100" onkeyup="search()" list="suggest" autocomplete="off">
+
+                <span>
+                    <h5>tendencias</h5>
+                <ul>
+                    <li onclick="search('1')">trend 1,</li>
+                    <li onclick="search('2')">trend 2,</li>
+                    <li onclick="search('3')">trend 3,</li>
+                    <li onclick="search('card')">trend 4</li>
+                </ul>
+                </span>
+            </div>
+        </div>
+        <div class="display" id="display">
+
+        </div>
+
+    </script>
+    <script type="text/x-handlebars-template" id="templateProduct">
+
+
+        <div class="productContent">
+            {{#with data}}
+            <div class="left">
+                <div class="imgs"><img src="../img/proce.png" alt=""></div>
+                <div class="description">
+                    <h1>{{title}}</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem at fugit modi, eaque ullam repudiandae corporis fuga animi suscipit quod nesciunt praesentium molestias reprehenderit tenetur exercitationem obcaecati officiis unde eius
+                    </p>
+                </div>
+                <div class="fullSpecs">
+                    <ul class="tec">
+                        <h4>Technicals</h4>
+                        {{#each specs}}
+                        <li>
+                            <h6>{{id}}</h6>
+                            <span>{{value}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="resources">
+                    <div class="sheet">
+                        <div>
+                            <i class="fa fa-file-o" aria-hidden="true"></i>
+                        </div>
+                        <ul>
+                            {{#each sheets}}
+                            <li><a href="{{value}}">{{title}}</a></li>
+                            {{/each}}
+                        </ul>
+
+                    </div>
+                    <div class="videos"></div>
+
+                </div>
+            </div>
+
+            <div class="side">
+
+                <ul class="specifications">
+                    <h3>specifications</h3>
+                    {{#each specifications}}
+                    <li>
+                        <h4>{{this.value}}<span>FT</span></h4>
+                        <span>{{this.desc}}</span>
+                    </li>
+                    {{/each}}
+
+                </ul>
+                <div class="order">
+                    <a href="/" class="buy">
+                        <h5>BUY</h5>
+                    </a>
+                    <a href="/" class="pre">
+                        <h5>PREORDER NOW</h5>
+                    </a>
+                    <a href="/" class="comp">COMPARE</a>
+                </div>
+            </div>{{/with}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="templateResults">
+        {{#each data}}
+        <div class="card mb-3" onclick="vre('{{title}}')">
+            <div class="row g-0">
+                <div class="col-md-4"><img src="/img/{{title}}{{img}}" class="img-fluid rounded-start"></div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-text"><small class="text-muted">{{date}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <h1>No Matches</h1>
+        {{/each}}
+    </script>
+    <script>
+        function results() {
+            var da = {
+                data: copia,
+            }
+
+            var template = Handlebars.compile(document.querySelector('#templateResults').innerHTML);
+            // execute the compiled template and print the output to the console
+            document.querySelector('#display').innerHTML = template(da);
+        };
+
+        function dato(id) {
+            for (let index = 0; index < data.length; index++) {
+                if (id.indexOf(data[index]['title']) !== -1) {
+                    return data[index];
+                }
+            }
+            return null;
+        }
+
+        function vre(dir) {
+            var da = {
+                    data: data,
+                }
+                // compile the template
+
+            if (dir) {
+                da = {
+                    data: dato(dir),
+                }
+                var template = Handlebars.compile(document.querySelector('#templateProduct').innerHTML);
+                // execute the compiled template and print the output to the console
+                document.querySelector('nav').classList.remove('open');
+                window.scrollTo(0, 0);
+
+
+            } else {
+                var template = Handlebars.compile(document.querySelector('#templateHome').innerHTML);
+                // execute the compiled template and print the output to the console
+            }
+            document.querySelector('#output').innerHTML = template(da);
+        }
+        vre()
+    </script>
+    <script src="/search.js"></script>
+
+</body>
+
+</html>
