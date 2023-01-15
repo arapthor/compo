@@ -9,7 +9,7 @@
     <!--Estilos de Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!--Iconos-->
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
     <!--Css-->
     <link rel="stylesheet" href="compo.css">
     <!--Fuentes-->
@@ -26,7 +26,7 @@
             <div class="menubtn">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </div>
-            <span><a href="/">COMPO</a></span>
+            <span><a href="">COMPO</a></span>
             <a href="#top" class="btn btn-outline-secondary"> Sign Up</a>
         </div>
 
@@ -87,13 +87,13 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="/datos.js"></script>
+    <script src="./datos.js"></script>
 
 
 
     <script type="text/x-handlebars-template" id="templateHome">
         <div class="banner">
-            <img src="/Capa 2.png" alt="" style="position: absolute; height:80%; top: 50%; left: 50%;transform: translate(-50%,-50%);">
+            <img src="./Capa 2.png" alt="" style="position: absolute; height:80%; top: 50%; left: 50%;transform: translate(-50%,-50%);">
             <div class="inputs">
                 <input class="form-control" type="text" name="search" id="search" placeholder="Que componente estas buscando?" maxlength="100" onkeyup="search()" list="suggest" autocomplete="off">
 
@@ -119,7 +119,7 @@
         <div class="productContent">
             {{#with data}}
             <div class="left">
-                <div class="imgs"><img src="../img/proce.png" alt=""></div>
+                <div class="imgs"><img src="./img/proce.png" alt=""></div>
                 <div class="description">
                     <h1>{{title}}</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem at fugit modi, eaque ullam repudiandae corporis fuga animi suscipit quod nesciunt praesentium molestias reprehenderit tenetur exercitationem obcaecati officiis unde eius
@@ -177,12 +177,11 @@
             </div>{{/with}}
         </div>
     </script>
-
     <script type="text/x-handlebars-template" id="templateResults">
         {{#each data}}
         <div class="card mb-3" onclick="vre('{{title}}')">
             <div class="row g-0">
-                <div class="col-md-4"><img src="/img/{{title}}{{img}}" class="img-fluid rounded-start"></div>
+                <div class="col-md-4"><img src="./img/{{title}}{{img}}" class="img-fluid rounded-start"></div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">{{title}}</h5>
@@ -196,6 +195,7 @@
         <h1>No Matches</h1>
         {{/each}}
     </script>
+
     <script>
         function results() {
             var da = {
@@ -240,7 +240,8 @@
         }
         vre()
     </script>
-    <script src="/search.js"></script>
+
+    <script src="./search.js"></script>
 
 </body>
 

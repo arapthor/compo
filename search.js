@@ -25,7 +25,7 @@ const search = (valued) => {
 
     for (let index = 0; index < data.length; index++) {
         let match = data[index].title;
-        console.log('prove');
+
         if (match.toUpperCase().indexOf(value) !== -1 && value !== ' ' && value !== '') {
             copia.push(data[index]);
 
